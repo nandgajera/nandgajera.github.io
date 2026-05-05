@@ -1,1 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nand Gajera — Cyber Security Professional</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:   #F8F4EE;
+  --ivory:   #EDE8DF;
+  --parchment: #E4DDD0;
+  --charcoal: #1C1C1C;
+  --ink:      #2E2E2E;
+  --steel:    #5A5A6A;
+  --muted:    #8A8A9A;
+  --gold:     #B8860B;
+  --gold-lt:  #D4A017;
+  --gold-pale:#F5E6C0;
+  --rust:     #8B3A2A;
+  --teal:     #1A5C6B;
+  --border:   #D4C9B8;
+  --border-dk:#B8AC98;
+}
 
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: 'Libre Baskerville', Georgia, serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(180,165,140,0.07) 28px, rgba(180,165,140,0.07) 29px),
+    repeating-linear-gradient(90deg, transparent, transparent 28px, rgba(180,165,140,0.04) 28px, rgba(180,165,140,0.04) 29px);
+  pointer-events: none; z-index: 0;
+}
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 64px;
+  height: 68px;
+  background: rgba(248,244,238,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 900; letter-spacing: -0.5px;
+  color: var(--charcoal);
+}
+.nav-logo span {
+  color: var(--gold); font-style: italic;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+  font-weight: 600; color: var(--steel); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-hire {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 10px 24px; background: var(--charcoal);
+  color: var(--cream); text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-hire:hover { background: var(--gold); }
+
+.hero {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 0; padding-top: 68px; overflow: hidden;
+}
+
+.hero-left {
+  padding: 90px 64px 80px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--border);
+}
+
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 14px;
+  animation: fadeIn 0.8s ease both;
+}
+.hero-eyebrow::after {
+  content: ''; flex: 1; max-width: 60px;
+  height: 1px; background: var(--gold-lt);
+}
+
+.hero-name {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: clamp(56px, 7vw, 100px);
+  line-height: 0.92; letter-spacing: -3px; color: var(--charcoal);
+  animation: fadeIn 0.8s 0.1s ease both;
+}
+.hero-name .italic-line {
+  font-style: italic; font-weight: 400;
+  color: var(--gold); display: block;
+  font-size: clamp(44px, 5.5vw, 76px);
+}
+
+.hero-rule {
+  width: 64px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+  margin: 32px 0;
+  animation: fadeIn 0.8s 0.2s ease both;
+}
+
+.hero-roles {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--steel);
+  margin-bottom: 28px; line-height: 2;
+  animation: fadeIn 0.8s 0.25s ease both;
+}
+
+.hero-desc {
+  font-size: 14.5px; line-height: 1.9; color: var(--steel);
+  max-width: 520px;
+  animation: fadeIn 0.8s 0.3s ease both;
+}
+
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 36px;
+  animation: fadeIn 0.8s 0.4s ease both;
+}
+.chip {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 7px 16px; border: 1px solid;
+}
+.chip-gold  { border-color: var(--gold);  color: var(--gold);  background: rgba(184,134,11,0.06); }
+.chip-teal  { border-color: var(--teal);  color: var(--teal);  background: rgba(26,92,107,0.06); }
+.chip-rust  { border-color: var(--rust);  color: var(--rust);  background: rgba(139,58,42,0.06); }
+.chip-ink   { border-color: var(--border-dk); color: var(--steel); background: transparent; }
+
+.hero-cta {
+  display: flex; gap: 14px; margin-top: 44px;
+  animation: fadeIn 0.8s 0.5s ease both;
+}
+.btn-dark {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 32px; background: var(--charcoal); color: var(--cream);
+  text-decoration: none; transition: all 0.2s;
+}
+.btn-dark:hover { background: var(--gold); }
+.btn-ghost {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  padding: 14px 32px; background: transparent; color: var(--charcoal);
+  border: 1px solid var(--border-dk); text-decoration: none; transition: all 0.2s;
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-right {
+  background: var(--ivory);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 48px;
+  border-left: none;
+  animation: fadeIn 0.9s 0.2s ease both;
+}
+.hero-stat-block { margin-bottom: 40px; }
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px; font-weight: 900; line-height: 1;
+  color: var(--charcoal); letter-spacing: -2px;
+}
+.stat-number span { color: var(--gold); }
+.stat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-top: 6px;
+}
+.stat-desc { font-size: 12px; color: var(--steel); margin-top: 6px; line-height: 1.6; }
+
+.hero-divider { height: 1px; background: var(--border); margin: 8px 0 40px; }
+
+.contact-snippet {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 12px;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 12px; color: var(--steel); padding: 6px 0;
+  border-bottom: 1px solid rgba(212,201,184,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item:hover { color: var(--gold); }
+.contact-item .ci-icon { width: 18px; text-align: center; font-size: 13px; }
+
+section { position: relative; z-index: 1; scroll-margin-top: 68px; }
+
+.section-inner { padding: 100px 64px; }
+
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 14px;
+}
+
+.display-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900; font-size: clamp(38px, 5vw, 60px);
+  letter-spacing: -2px; color: var(--charcoal);
+  line-height: 1; margin-bottom: 56px;
+}
+.display-title em {
+  font-style: italic; font-weight: 400; color: var(--gold);
+}
+
+.alt-bg { background: var(--ivory); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.domains-layout { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: 1px solid var(--border); }
+.domain-col {
+  padding: 44px 36px; border-right: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.domain-col:last-child { border-right: none; }
+.domain-col:hover { background: rgba(212,160,23,0.04); }
+
+.domain-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px; font-weight: 900; line-height: 1;
+  color: var(--border); letter-spacing: -3px; margin-bottom: 4px;
+}
+.domain-icon-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.lbl-rust { color: var(--rust); }
+.lbl-teal { color: var(--teal); }
+.lbl-gold { color: var(--gold); }
+
+.domain-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--charcoal);
+  margin-bottom: 20px; line-height: 1.2;
+}
+.domain-items { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.domain-items li {
+  font-size: 12.5px; color: var(--steel); line-height: 1.5;
+  padding-left: 16px; position: relative;
+}
+.domain-items li::before {
+  content: '—'; position: absolute; left: 0;
+  font-size: 11px; top: 1px;
+}
+.lbl-rust + .domain-heading + .domain-items li::before { color: var(--rust); }
+.lbl-teal + .domain-heading + .domain-items li::before { color: var(--teal); }
+
+.exp-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+.exp-card {
+  display: grid; grid-template-columns: 260px 1fr;
+  border-bottom: 1px solid var(--border); transition: background 0.2s;
+}
+.exp-card:last-child { border-bottom: none; }
+.exp-card:hover { background: rgba(212,160,23,0.03); }
+
+.exp-meta {
+  padding: 36px 32px; border-right: 1px solid var(--border);
+  background: var(--ivory);
+}
+.exp-period {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.exp-org {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 700; color: var(--charcoal);
+  line-height: 1.35; margin-bottom: 6px;
+}
+.exp-loc {
+  font-size: 11.5px; color: var(--muted); font-style: italic;
+}
+.exp-tag {
+  display: inline-block; margin-top: 14px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 4px 10px;
+}
+.tag-blue { background: rgba(26,92,107,0.1); color: var(--teal); border: 1px solid rgba(26,92,107,0.2); }
+.tag-red  { background: rgba(139,58,42,0.1);  color: var(--rust); border: 1px solid rgba(139,58,42,0.2); }
+
+.exp-body { padding: 36px 44px; }
+.exp-title-line {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 700; color: var(--charcoal);
+  margin-bottom: 22px; line-height: 1.3;
+}
+.exp-title-line.red { color: var(--rust); }
+.exp-points { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+.exp-points li {
+  font-size: 13px; line-height: 1.75; color: var(--steel);
+  display: grid; grid-template-columns: 20px 1fr; gap: 6px;
+}
+.exp-points li::before {
+  content: '›'; color: var(--gold); font-size: 16px;
+  line-height: 1.6; font-family: 'Playfair Display', serif;
+}
+.exp-points li strong { color: var(--ink); font-weight: 700; }
+
+.project-wrap {
+  background: var(--charcoal);
+  padding: 72px 64px;
+  position: relative; overflow: hidden;
+}
+.project-wrap::before {
+  content: '"';
+  font-family: 'Playfair Display', serif;
+  font-size: 400px; font-style: italic; font-weight: 900;
+  color: rgba(255,255,255,0.02);
+  position: absolute; top: -80px; left: 20px;
+  line-height: 1; pointer-events: none;
+}
+.project-wrap .eyebrow { color: var(--gold-lt); }
+.project-wrap .display-title { color: #F0EBE3; margin-bottom: 12px; }
+.project-wrap .display-title em { color: var(--gold-lt); }
+.project-subtitle {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2px; color: rgba(240,235,227,0.5);
+  text-transform: uppercase; margin-bottom: 52px;
+}
+
+.vectors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 1px; background: rgba(255,255,255,0.06); margin-bottom: 48px; }
+.vector-item {
+  background: var(--charcoal); padding: 28px 24px;
+  transition: background 0.2s;
+}
+.vector-item:hover { background: rgba(255,255,255,0.04); }
+.v-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px; font-weight: 900; color: rgba(184,134,11,0.25);
+  line-height: 1; margin-bottom: 8px; letter-spacing: -2px;
+}
+.v-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px; font-weight: 700; color: #F0EBE3;
+  margin-bottom: 8px; line-height: 1.3;
+}
+.v-tech { font-size: 11.5px; color: rgba(240,235,227,0.45); line-height: 1.6; }
+
+.outcomes-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.oc {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 18px; color: #86EFAC;
+  background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2);
+}
+
+.skills-table { border: 1px solid var(--border); width: 100%; border-collapse: collapse; }
+.skills-table tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+.skills-table tr:last-child { border-bottom: none; }
+.skills-table tr:hover { background: rgba(212,160,23,0.04); }
+.skills-table td { padding: 18px 24px; font-size: 13px; }
+.sk-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+  width: 220px; vertical-align: top; white-space: nowrap;
+}
+.sk-val { color: var(--steel); line-height: 1.7; }
+.sk-val strong { color: var(--charcoal); font-weight: 700; }
+
+.edu-row { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); }
+.edu-cell {
+  padding: 48px 44px; transition: background 0.2s;
+}
+.edu-cell:first-child { border-right: 1px solid var(--border); }
+.edu-cell:hover { background: rgba(212,160,23,0.04); }
+.edu-deg {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 900; color: var(--charcoal);
+  margin-bottom: 6px; letter-spacing: -0.5px; line-height: 1.2;
+}
+.edu-field {
+  font-family: 'Playfair Display', serif;
+  font-style: italic; font-size: 16px; color: var(--gold);
+  margin-bottom: 12px;
+}
+.edu-inst { font-size: 12.5px; color: var(--steel); margin-bottom: 24px; line-height: 1.5; }
+.edu-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+.edu-pill {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; padding: 6px 14px; border: 1px solid;
+}
+.pill-green { border-color: rgba(26,92,107,0.3); color: var(--teal); }
+.pill-gray  { border-color: var(--border-dk); color: var(--muted); }
+
+.certs-alt { background: var(--parchment); border-top: 1px solid var(--border); }
+.certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 0; border: 1px solid var(--border); }
+.cert-tile {
+  padding: 32px 28px; border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s; position: relative; overflow: hidden;
+}
+.cert-tile:hover { background: rgba(184,134,11,0.06); }
+.cert-tile::after {
+  content: '✓';
+  font-family: 'Playfair Display', serif;
+  position: absolute; right: 16px; top: 16px;
+  font-size: 13px; color: var(--gold); opacity: 0.6;
+}
+.cert-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 900; color: var(--border);
+  line-height: 1; margin-bottom: 10px; letter-spacing: -2px;
+}
+.cert-name-t {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px; font-weight: 700; color: var(--charcoal);
+  margin-bottom: 6px; line-height: 1.35;
+}
+.cert-issuer-t {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--gold);
+}
+.cert-date-t { font-size: 11px; color: var(--muted); margin-top: 4px; font-style: italic; }
+
+.contact-wrap {
+  display: grid; grid-template-columns: 1fr 1fr; min-height: 480px;
+}
+.contact-panel-left {
+  background: var(--charcoal); padding: 80px 64px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.contact-panel-left .eyebrow { color: var(--gold-lt); }
+.contact-big {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(42px, 5vw, 72px); font-weight: 900;
+  line-height: 0.95; letter-spacing: -2px; color: #F0EBE3;
+  margin: 16px 0 28px;
+}
+.contact-big em { font-style: italic; font-weight: 400; color: var(--gold-lt); }
+.contact-tagline { font-size: 13px; color: rgba(240,235,227,0.5); line-height: 1.8; }
+
+.contact-panel-right {
+  background: var(--ivory); padding: 80px 56px;
+  display: flex; flex-direction: column; justify-content: center;
+  border-left: 1px solid var(--border);
+}
+.contact-panel-right .eyebrow { color: var(--gold); margin-bottom: 32px; }
+.contact-entries { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); }
+.contact-entry {
+  display: flex; align-items: center; gap: 20px;
+  padding: 20px 24px; border-bottom: 1px solid var(--border);
+  text-decoration: none; color: var(--ink);
+  transition: all 0.2s;
+}
+.contact-entry:last-child { border-bottom: none; }
+.contact-entry:hover { background: rgba(184,134,11,0.06); color: var(--gold); }
+.ce-icon {
+  width: 36px; height: 36px; background: var(--parchment);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px; flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+.ce-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 3px;
+}
+.ce-val { font-size: 13px; }
+.ce-arrow { margin-left: auto; color: var(--muted); font-size: 18px; transition: transform 0.2s; }
+.contact-entry:hover .ce-arrow { transform: translateX(4px); color: var(--gold); }
+
+footer {
+  background: var(--charcoal); color: rgba(240,235,227,0.4);
+  padding: 28px 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  position: relative; z-index: 1;
+}
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px; font-weight: 900; color: #F0EBE3;
+}
+.footer-logo span { font-style: italic; color: var(--gold-lt); }
+.footer-copy {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay { transition-delay: 0.15s; }
+
+@media(max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 80px 24px 48px; }
+  .hero-right { display: none; }
+  .section-inner { padding: 64px 24px; }
+  .domains-layout { grid-template-columns: 1fr; }
+  .domain-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .exp-card { grid-template-columns: 1fr; }
+  .exp-meta { border-right: none; border-bottom: 1px solid var(--border); }
+  .edu-row { grid-template-columns: 1fr; }
+  .edu-cell:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+  .contact-wrap { grid-template-columns: 1fr; }
+  .contact-panel-left { padding: 56px 24px; }
+  .contact-panel-right { padding: 48px 24px; }
+  .project-wrap { padding: 56px 24px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Nand <span>Gajera</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">Profile</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:gajeranand20@gmail.com" class="nav-hire">Contact Me</a>
+</nav>
+
+<section id="about">
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Cyber Security Professional</div>
+
+      <h1 class="hero-name">
+        Nand<br>
+        <span class="italic-line">Gajera</span>
+      </h1>
+
+      <div class="hero-rule"></div>
+
+      <div class="hero-roles">
+        SOC Analyst · Penetration Tester<br>
+        Malware Analyst · Digital Forensics
+      </div>
+
+      <p class="hero-desc">
+        Results-driven Cyber Security professional pursuing M.Tech in Cyber Security at Rastriya Raksha University. Dual-domain practitioner operating across offensive penetration testing, SOC operations, malware analysis, and digital forensics.
+      </p>
+
+      <div class="hero-chips">
+        <span class="chip chip-rust">🔴 Red Team</span>
+        <span class="chip chip-teal">🔵 Blue Team</span>
+        <span class="chip chip-gold">eJPT Certified</span>
+        <span class="chip chip-gold">CNSP Certified</span>
+        <span class="chip chip-ink">M.Tech Cyber Security</span>
+        
+      </div>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn-dark">Get in Touch</a>
+        <a href="#experience" class="btn-ghost">View Experience</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-stat-block">
+        <div class="stat-number">1.5<span>+</span></div>
+        <div class="stat-label">Years of Experience</div>
+        <div class="stat-desc">Spanning SOC operations, penetration testing, malware analysis and forensic investigations.</div>
+      </div>
+
+      <div class="hero-divider"></div>
+      <div class="hero-stat-block">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Certifications</div>
+        <div class="stat-desc">eJPT, CNSP, Elastic SIEM, Sumo Logic, Ethical Hacking & Penetration Testing (CDAC).</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="contact-snippet">Quick Contact</div>
+      <a href="mailto:gajeranand20@gmail.com" class="contact-item">
+        <span class="ci-icon">✉</span> gajeranand20@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/gajeranand/" target="_blank" class="contact-item">
+        <span class="ci-icon">💼</span> linkedin.com/in/gajeranand
+      </a>
+      <div class="contact-item">
+        <span class="ci-icon">📍</span> Gujarat, India
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="expertise">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Security Domains</div>
+    <h2 class="display-title reveal">Offensive &amp; Defensive <em>Expertise</em></h2>
+    <div class="domains-layout reveal">
+      <div class="domain-col">
+        <div class="domain-number">01</div>
+        <div class="domain-icon-label lbl-rust">Red Team — Offensive</div>
+        <div class="domain-heading">Penetration Testing</div>
+        <ul class="domain-items" style="--lbl: var(--rust);">
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>Web Application Penetration Testing</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>Burp Suite — Interception & Manipulation</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>File Upload Vulnerability Exploitation</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>Network Recon (Nmap, AMASS)</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>OSINT & Google Dorking</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>Wireshark Packet Analysis</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--rust);">—</span>OWASP Top 10 Methodology</li>
+        </ul>
+      </div>
+      <div class="domain-col">
+        <div class="domain-number">02</div>
+        <div class="domain-icon-label lbl-teal">Blue Team — Defensive</div>
+        <div class="domain-heading">SOC Operations</div>
+        <ul class="domain-items">
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>Alert Triage & Incident Response</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>SIEM Rule Development & Tuning</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>DLP Policy Implementation (Netskope)</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>User Behavior Analytics</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>Custom Dashboard Creation</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>Threat Hunting & OSINT</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--teal);">—</span>Executive Security Reporting</li>
+        </ul>
+      </div>
+      <div class="domain-col">
+        <div class="domain-number">03</div>
+        <div class="domain-icon-label lbl-gold">Analysis — Intelligence</div>
+        <div class="domain-heading">Forensics & Malware</div>
+        <ul class="domain-items">
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Malware Analysis (Static & Dynamic)</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Digital Forensics Investigations</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>IoC Extraction & Documentation</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Log Correlation & Artifact Analysis</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Timeline Reconstruction</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>MITRE ATT&CK Mapping</li>
+          <li style="padding-left:16px; position:relative;"><span style="position:absolute;left:0;color:var(--gold);">—</span>Threat Intelligence Enrichment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Work History</div>
+    <h2 class="display-title reveal">Professional <em>Experience</em></h2>
+
+    <div class="exp-list reveal">
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-period">Jul 2024 — Oct 2025</div>
+          <div class="exp-org">Infopercept Consulting Pvt. Ltd.</div>
+          <div class="exp-loc">Gujarat, India</div>
+          <span class="exp-tag tag-blue">SOC / Blue Team</span>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title-line">Security Operations Center (SOC) Analyst</div>
+          <ul class="exp-points">
+            <li><div>Monitored and triaged security events across <strong>Sumo Logic, Kibana, CrowdStrike, Netskope, Proofpoint, and Okta</strong>, ensuring SLA compliance for critical incidents.</div></li>
+            <li><div>Conducted <strong>malware analysis</strong> on suspicious files and email attachments using Any.Run and MX Toolbox, documenting IoCs and TTPs aligned with MITRE ATT&CK.</div></li>
+            <li><div>Applied <strong>digital forensics techniques</strong> — log correlation, artifact extraction, and timeline reconstruction — to identify breach root cause and scope.</div></li>
+            <li><div>Implemented and managed <strong>real-time and API-based DLP policies</strong> via Netskope, monitoring user behavior for anomalous activities and data exfiltration.</div></li>
+            <li><div>Designed <strong>Hypercare dashboards</strong> for VIP users and generated weekly/monthly executive security reports for stakeholder review.</div></li>
+            <li><div>Automated repetitive SOC workflows using <strong>Python scripts</strong>, improving MTTR (Mean Time to Respond) across incident categories.</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-period">Jul 2024 — Aug 2024</div>
+          <div class="exp-org">CDAC Noida — Cyber Gyan Virtual Internship</div>
+          <div class="exp-loc">Noida, India (Remote)</div>
+          <span class="exp-tag tag-red">Pentest / Red Team</span>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title-line red">Ethical Hacking & Penetration Testing Intern</div>
+          <ul class="exp-points">
+            <li><div>Performed network reconnaissance using <strong>Nmap, AMASS, Wireshark, and Google Dorking</strong> for comprehensive attack surface mapping.</div></li>
+            <li><div>Utilized tools such as <strong>Burp Suite</strong> to analyze traffic, intercept requests, and identify vulnerabilities across multiple layers of the application stack.</div></li>
+            <li><div>Performed <strong>penetration testing on web applications</strong>, simulating real-world attack vectors to exploit insecure file upload mechanisms and achieve controlled <strong>remote code execution (RCE)</strong> scenarios.</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-period">Jan 2024 — Jun 2024</div>
+          <div class="exp-org">Zeronsec India Pvt. Ltd.</div>
+          <div class="exp-loc">Gujarat, India</div>
+          <span class="exp-tag tag-blue">Cyber Security</span>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title-line">Cyber Security Analyst — Full-Time Intern</div>
+          <ul class="exp-points">
+            <li><div>Developed comprehensive <strong>MITRE ATT&CK detection rules</strong> from open-source repositories, significantly enhancing SIEM threat detection coverage.</div></li>
+            <li><div>Performed <strong>phishing email analysis</strong>, URL reputation checks, and malware behavior analysis to identify and contain threats prior to escalation.</div></li>
+            <li><div>Constructed <strong>real-time attack scenarios</strong> (red team simulation), correlated log findings, and executed end-to-end incident response exercises.</div></li>
+            <li><div>Created <strong>compliance-oriented dashboards</strong> and audit-ready reports for multiple regulatory frameworks, enabling streamlined compliance management.</div></li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-meta">
+          <div class="exp-period">Sep 2022 — Dec 2023</div>
+          <div class="exp-org">Zeronsec India Pvt. Ltd.</div>
+          <div class="exp-loc">Gujarat, India</div>
+          <span class="exp-tag tag-blue">R&D Engineering</span>
+        </div>
+        <div class="exp-body">
+          <div class="exp-title-line">Junior R&D Engineer — Part-Time Intern</div>
+          <ul class="exp-points">
+            <li><div>Developed <strong>Python scripts</strong> for threat intelligence enrichment and automation, boosting operational efficiency across security pipelines.</div></li>
+            <li><div>Deployed and configured a <strong>multi-node Elasticsearch cluster</strong>, optimizing log ingestion, parsing, and enrichment workflows for downstream analytics.</div></li>
+            <li><div>Automated software installations and system configurations, reducing manual setup overhead across <strong>security lab environments</strong>.</div></li>
+            <li><div>Gained hands-on experience in <strong>log management</strong> — collecting, normalizing, and enriching security event data to support SIEM and detection engineering.</div></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+<section class="alt-bg">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Academic Background</div>
+    <h2 class="display-title reveal">Education</h2>
+    <div class="edu-row reveal">
+      <div class="edu-cell">
+        <div class="edu-deg">Master of Technology</div>
+        <div class="edu-field">Cyber Security</div>
+        <div class="edu-inst">Rastriya Raksha University<br>Gandhinagar, Gujarat</div>
+        <div class="edu-pills">
+          <span class="edu-pill pill-green">CGPA 7.7</span>
+          <span class="edu-pill pill-gray">2025 – 2027</span>
+        </div>
+      </div>
+      <div class="edu-cell">
+        <div class="edu-deg">Bachelor of Engineering</div>
+        <div class="edu-field">Computer Science Engineering</div>
+        <div class="edu-inst">Gujarat Technological University (BITS)<br>Vadodara, Gujarat</div>
+        <div class="edu-pills">
+          <span class="edu-pill pill-green">CGPA 8.6</span>
+          <span class="edu-pill pill-gray">2020 – 2024</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="certs-alt">
+  <div class="section-inner">
+    <div class="eyebrow reveal">Credentials</div>
+    <h2 class="display-title reveal">Certifications</h2>
+    <div class="certs-grid reveal">
+      <div class="cert-tile">
+        <div class="cert-num">01</div>
+        <div class="cert-name-t">eJPT — eLearnSecurity Junior Penetration Tester</div>
+        <div class="cert-issuer-t">eLearnSecurity</div>
+      </div>
+      <div class="cert-tile">
+        <div class="cert-num">02</div>
+        <div class="cert-name-t">Ethical Hacking & Penetration Testing</div>
+        <div class="cert-issuer-t">CDAC Noida</div>
+        <div class="cert-date-t">2024</div>
+      </div>
+      <div class="cert-tile">
+        <div class="cert-num">03</div>
+        <div class="cert-name-t">Certified Network Security Practitioner (CNSP)</div>
+        <div class="cert-issuer-t">The SecOps Group</div>
+        <div class="cert-date-t">November 24, 2025</div>
+      </div>
+      <div class="cert-tile">
+        <div class="cert-num">04</div>
+        <div class="cert-name-t">Sumo Logic — Fundamentals & Search Mastery</div>
+        <div class="cert-issuer-t">Sumo Logic</div>
+      </div>
+      <div class="cert-tile">
+        <div class="cert-num">05</div>
+        <div class="cert-name-t">Elastic Security for SIEM</div>
+        <div class="cert-issuer-t">Elastic</div>
+        <div class="cert-date-t">March 8, 2025</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="padding:0;">
+  <div class="contact-wrap">
+    <div class="contact-panel-left">
+      <div class="eyebrow">Get in Touch</div>
+      <div class="contact-big">Let's<br><em>Connect</em></div>
+      <p class="contact-tagline">Open to opportunities in SOC analysis, penetration testing, and cyber security research. Available for full-time roles, internships, and collaborative projects.</p>
+    </div>
+    <div class="contact-panel-right">
+      <div class="eyebrow">Contact Details</div>
+      <div class="contact-entries reveal">
+        <a href="mailto:gajeranand20@gmail.com" class="contact-entry">
+          <div class="ce-icon">✉</div>
+          <div><div class="ce-label">Email</div><div class="ce-val">gajeranand20@gmail.com</div></div>
+          <div class="ce-arrow">→</div>
+        </a>
+        <a href="https://www.linkedin.com/in/gajeranand/" target="_blank" class="contact-entry">
+          <div class="ce-icon">💼</div>
+          <div><div class="ce-label">LinkedIn</div><div class="ce-val">linkedin.com/in/gajeranand</div></div>
+          <div class="ce-arrow">→</div>
+        </a>
+        <a href="https://github.com/gajeranand" target="_blank" class="contact-entry">
+          <div class="ce-icon">⌨</div>
+          <div><div class="ce-label">GitHub</div><div class="ce-val">github.com/gajeranand</div></div>
+          <div class="ce-arrow">→</div>
+        </a>
+
+        <div class="contact-entry">
+          <div class="ce-icon">📍</div>
+          <div><div class="ce-label">Location</div><div class="ce-val">Gujarat, India</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Nand <span>Gajera</span></div>
+  <div class="footer-copy">© 2025 · SOC Analyst · Penetration Tester · Gujarat, India</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => io.observe(el));
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 100) cur = s.id; });
+    navAs.forEach(a => { a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--gold)' : ''; });
+  });
+</script>
+</body>
+</html>
