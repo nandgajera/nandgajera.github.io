@@ -82,48 +82,6 @@ This portfolio highlights:
 4. **Sumo Logic** — Fundamentals & Search Mastery
 5. **Elastic Security for SIEM** (March 8, 2025)
 
-## 📂 Files
-
-- `index.html` — Main portfolio website
-- `nand_gajera_portfolio.html` — Alternative portfolio format
-- `github_readme_pentest_preview.html` — GitHub preview page
-
-## 🚀 Getting Started
-
-### View the Portfolio
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/gajeranand/portfolio.git
-   ```
-2. Open `index.html` in your web browser
-3. Navigate through sections: Profile → Expertise → Experience → Contact
-
-### Technical Stack
-- **HTML5** — Semantic markup and accessibility
-- **CSS3** — Custom variables, grid layout, animations
-- **JavaScript** — Scroll reveal effects, active navigation highlighting
-- **Fonts** — Playfair Display, Libre Baskerville, Josefin Sans (Google Fonts)
-
-### Browser Compatibility
-- Chrome/Edge (Latest)
-- Firefox (Latest)
-- Safari (Latest)
-- Responsive design for mobile devices
-
-## 📱 Responsive Design
-
-The portfolio is fully responsive:
-- **Desktop**: Multi-column grid layouts with sidebars
-- **Tablet**: Optimized spacing and adjusted typography
-- **Mobile**: Single-column layout with touch-friendly navigation
-
-## 🎨 Design Highlights
-
-- **Color Palette**: Cream background with gold accents, charcoal text, and semantic color coding (Rust for Red Team, Teal for Blue Team)
-- **Typography**: Professional serif fonts with elegant contrast
-- **Animations**: Smooth scroll reveals and interactive hover states
-- **Accessibility**: Semantic HTML, high contrast ratios, keyboard navigation
-
 ## 📞 Contact
 
 - **Email**: [gajeranand20@gmail.com](mailto:gajeranand20@gmail.com)
